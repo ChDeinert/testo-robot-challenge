@@ -1,0 +1,26 @@
+{
+  "name": "testo-robot-challenge",
+  "version": "1.0.0",
+  "description": "Small coding challenge to show some code",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --bail",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChDeinert/testo-robot-challenge.git"
+  },
+  "author": "Christian Deinert <ChDeinert@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChDeinert/testo-robot-challenge/issues"
+  },
+  "homepage": "https://github.com/ChDeinert/testo-robot-challenge#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/jest": "^26.0.24",
+    "jest": "^27.0.6"
+  }
+}
