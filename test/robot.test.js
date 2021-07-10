@@ -34,22 +34,26 @@ describe('Robot', () => {
   describe('move()', () => {
     it('Raises y-coordinate if faced NORTH', () => {
       testRobot.place(2, 2, 'NORTH');
+      testRobot.move();
       expect(testRobot.yPosition).toBe(3);
     });
 
     it('Raises x-coordinate if faced EAST', () => {
       testRobot.place(2, 2, 'EAST');
+      testRobot.move();
       expect(testRobot.xPosition).toBe(3);
     });
 
     it('Lowers y-coordinate if faced SOUTH', () => {
       testRobot.place(2, 2, 'SOUTH');
+      testRobot.move();
       expect(testRobot.yPosition).toBe(1);
     });
 
     it('Lowers x-coordinate if faced WEST', () => {
       testRobot.place(2, 2, 'WEST');
-      expect(testRobot.yPosition).toBe(1);
+      testRobot.move();
+      expect(testRobot.xPosition).toBe(1);
     });
 
     it('Won\'t allow to run if robot isn\'t placed on the board', () => {
@@ -67,11 +71,11 @@ describe('Robot', () => {
 
       testRobot.place(0, 0, 'SOUTH');
       expect(() => testRobot.move()).toThrow();
-      expect(testRobot.yPosition).toBe(4);
+      expect(testRobot.yPosition).toBe(0);
 
       testRobot.place(0, 0, 'WEST');
       expect(() => testRobot.move()).toThrow();
-      expect(testRobot.yPosition).toBe(4);
+      expect(testRobot.yPosition).toBe(0);
     });
   });
 
