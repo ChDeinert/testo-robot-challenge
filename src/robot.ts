@@ -81,25 +81,25 @@ class Robot {
     switch (this.direction) {
       case 'NORTH':
         if (!isValidYCoordinate(this.yPosition + 1, this.board)) {
-          throw new Error('The robot can\'t move in that direction, or it falls down')
+          throw new Error('The robot can\'t move in that direction, or it falls down');
         }
         ++this.yPosition;
         break;
       case 'EAST':
         if (!isValidXCoordinate(this.xPosition + 1, this.board)) {
-          throw new Error('The robot can\'t move in that direction, or it falls down')
+          throw new Error('The robot can\'t move in that direction, or it falls down');
         }
         ++this.xPosition;
         break;
       case 'SOUTH':
         if (!isValidYCoordinate(this.yPosition - 1, this.board)) {
-          throw new Error('The robot can\'t move in that direction, or it falls down')
+          throw new Error('The robot can\'t move in that direction, or it falls down');
         }
         --this.yPosition;
         break;
       case 'WEST':
         if (!isValidXCoordinate(this.yPosition - 1, this.board)) {
-          throw new Error('The robot can\'t move in that direction, or it falls down')
+          throw new Error('The robot can\'t move in that direction, or it falls down');
         }
         --this.xPosition;
         break;

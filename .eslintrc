@@ -13,5 +13,9 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
-  ]
+  ],
+  "rules": {
+    "semi": "off",
+    "@typescript-eslint/semi": ["error"]
+  }
 }
