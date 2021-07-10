@@ -103,7 +103,7 @@ class Robot {
         }
         --this.xPosition;
         break;
-    };
+    }
   };
 
   left = () : void => {
@@ -141,9 +141,9 @@ class Robot {
         return turnDirection === 'left' ? 'EAST' : 'WEST';
       case 'WEST':
         return turnDirection === 'left' ? 'SOUTH' : 'NORTH';
-    };
+    }
   };
-};
+}
 
 export default Robot;
 export { defaultBoard, possibleDirections, isRobotPlaced, isValidXCoordinate, isValidYCoordinate, isValidDirection };
