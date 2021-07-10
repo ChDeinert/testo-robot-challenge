@@ -74,25 +74,21 @@ class Robot {
   };
 
   move = () : void => {
-    if (!this.isRobotPlaced(this.board, this.xPosition, this.yPosition, this.direction)) {
+    if (!this.isRobotPlaced(this.xPosition, this.yPosition, this.direction)) {
       throw new Error('The robot is not placed yet');
     }
   };
 
   left = () : void => {
-    if (!this.isRobotPlaced(this.board, this.xPosition, this.yPosition, this.direction)) {
-      throw new Error('The robot is not placed yet');
-    }
+    this.direction = this.nextDirection('left');
   };
 
   right = () : void => {
-    if (!this.isRobotPlaced(this.board, this.xPosition, this.yPosition, this.direction)) {
-      throw new Error('The robot is not placed yet');
-    }
+    this.direction = this.nextDirection('right');
   };
 
   report = () : Position => {
-    if (!this.isRobotPlaced(this.board, this.xPosition, this.yPosition, this.direction)) {
+    if (!this.isRobotPlaced(this.xPosition, this.yPosition, this.direction)) {
       throw new Error('The robot is not placed yet');
     }
 
@@ -102,6 +98,23 @@ class Robot {
       direction: this.direction,
       toString: () => `${this.xPosition}, ${this.yPosition}, ${this.direction}`,
     };
+  };
+
+  private nextDirection = (turnDirection : 'left'|'right') : Direction => {
+    if (!this.isRobotPlaced(this.xPosition, this.yPosition, this.direction)) {
+      throw new Error('The robot is not placed yet');
+    }
+
+    switch (this.direction) {
+      case 'NORTH':
+        return turnDirection === 'left' ? 'WEST' : 'EAST';
+      case 'EAST':
+        return turnDirection === 'left' ? 'NORTH' : 'SOUTH';
+      case 'SOUTH':
+        return turnDirection === 'left' ? 'EAST' : 'WEST';
+      case 'WEST':
+        return turnDirection === 'left' ? 'SOUTH' : 'NORTH';
+    }
   };
 };
 
