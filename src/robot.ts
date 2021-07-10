@@ -77,6 +77,33 @@ class Robot {
     if (!this.isRobotPlaced(this.xPosition, this.yPosition, this.direction)) {
       throw new Error('The robot is not placed yet');
     }
+
+    switch (this.direction) {
+      case 'NORTH':
+        if (!isValidYCoordinate(this.yPosition + 1, this.board)) {
+          throw new Error('The robot can\'t move in that direction, or it falls down')
+        }
+        ++this.yPosition;
+        break;
+      case 'EAST':
+        if (!isValidXCoordinate(this.xPosition + 1, this.board)) {
+          throw new Error('The robot can\'t move in that direction, or it falls down')
+        }
+        ++this.xPosition;
+        break;
+      case 'SOUTH':
+        if (!isValidYCoordinate(this.yPosition - 1, this.board)) {
+          throw new Error('The robot can\'t move in that direction, or it falls down')
+        }
+        --this.yPosition;
+        break;
+      case 'WEST':
+        if (!isValidXCoordinate(this.yPosition - 1, this.board)) {
+          throw new Error('The robot can\'t move in that direction, or it falls down')
+        }
+        --this.xPosition;
+        break;
+    };
   };
 
   left = () : void => {
@@ -114,7 +141,7 @@ class Robot {
         return turnDirection === 'left' ? 'EAST' : 'WEST';
       case 'WEST':
         return turnDirection === 'left' ? 'SOUTH' : 'NORTH';
-    }
+    };
   };
 };
 
