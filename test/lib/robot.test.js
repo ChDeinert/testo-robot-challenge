@@ -1,4 +1,4 @@
-import Robot, { defaultBoard, possibleDirections } from '../src/robot';
+import Robot, { defaultBoard, possibleDirections } from '../../src/lib/robot';
 
 describe('Robot', () => {
   let testRobot;
