@@ -98,7 +98,7 @@ class Robot {
         --this.yPosition;
         break;
       case 'WEST':
-        if (!isValidXCoordinate(this.yPosition - 1, this.board)) {
+        if (!isValidXCoordinate(this.xPosition - 1, this.board)) {
           throw new Error('The robot can\'t move in that direction, or it falls down');
         }
         --this.xPosition;

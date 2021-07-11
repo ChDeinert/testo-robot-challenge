@@ -61,21 +61,21 @@ describe('Robot', () => {
     });
 
     it('Won\'t allow moving if robot goes out of bounds', () => {
-      testRobot.place(4, 4, 'NORTH');
+      testRobot.place(2, 4, 'NORTH');
       expect(() => testRobot.move()).toThrow();
       expect(testRobot.yPosition).toBe(4);
 
-      testRobot.place(4, 4, 'EAST');
+      testRobot.place(4, 2, 'EAST');
       expect(() => testRobot.move()).toThrow();
-      expect(testRobot.yPosition).toBe(4);
+      expect(testRobot.xPosition).toBe(4);
 
-      testRobot.place(0, 0, 'SOUTH');
+      testRobot.place(2, 0, 'SOUTH');
       expect(() => testRobot.move()).toThrow();
       expect(testRobot.yPosition).toBe(0);
 
-      testRobot.place(0, 0, 'WEST');
+      testRobot.place(0, 2, 'WEST');
       expect(() => testRobot.move()).toThrow();
-      expect(testRobot.yPosition).toBe(0);
+      expect(testRobot.xPosition).toBe(0);
     });
   });
 
