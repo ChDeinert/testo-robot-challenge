@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRobotContext } from '../context/RobotContext';
+import { useForm } from "react-hook-form";
 
 const Controls = () => {
   const { 
@@ -7,13 +8,10 @@ const Controls = () => {
     state: { initialized }, 
     controls 
   } = useRobotContext();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onPlace = event => {
-    const xCoordinate = document.querySelector<HTMLFormElement>('#xCoordinate');
-    const yCoordinate = document.querySelector<HTMLFormElement>('#yCoordinate');
-    const direction = document.querySelector<HTMLFormElement>('#direction');
-
-    controls?.place(xCoordinate.valueAsNumber, yCoordinate.valueAsNumber, direction.value);
+  const onPlace = ({ xCoordinate, yCoordinate, direction }) => {
+    controls?.place(parseInt(xCoordinate), parseInt(yCoordinate), direction);
   };
   const onMoveClick = () => {
     controls?.move();
@@ -27,22 +25,24 @@ const Controls = () => {
 
   return !initialized ? (<p>loading...</p>) : (
     <>
-      <form onSubmit={onPlace}>
+      <form onSubmit={handleSubmit(onPlace)} style={{ display: 'flex', flexDirection: 'column' }}>
         <label htmlFor="xCoordinate">
           X-Coordinate: 
-          <input type="number" name="xCoordinate" id="xCoordinate" min="0" max={board.xWidth - 1} required size={1} />
+          <input type="number" {...register('xCoordinate', { required: true, min: 0, max: board.xWidth - 1 })} min={0} max={board.xWidth - 1} size={1} />
+          {errors.xCoordinate?.type === 'required' && 'X-Coordinate is required!'}
         </label>
         <label htmlFor="yCoordinate">
           Y-Coordinate: 
-          <input type="number" name="yCoordinate" id="yCoordinate" min="0" max={board.yWidth - 1} required size={1} />
+          <input type="number" {...register('yCoordinate', { required: true, min: 0, max: board.yWidth - 1 })} min={0} max={board.yWidth - 1} size={1} />
+          {errors.yCoordinate?.type === 'required' && 'Y-Coordinate is required!'}
         </label>
         <label htmlFor="direction">
           Facing direction:
-          <select name="direction" id="direction">
+          <select {...register('direction', { required: true })}>
             {possibleDirections.map((direction, index) => (<option key={`direction_${index}`} value={direction}>{direction}</option>))}
           </select>
         </label>
-        <input type="button" value="place" onClick={onPlace} />
+        <input type="submit" value="place" />
       </form>
       <div>
         <button onClick={onLeftClick}>left</button>
