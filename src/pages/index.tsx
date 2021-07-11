@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import Board from '../components/Board';
 import Controls from '../components/Controls';
 
-const IndexPage = () => (
+const IndexPage : React.FC = () => (
   <Layout>
     <h1>Testo Robot Challenge</h1>
     <Board />

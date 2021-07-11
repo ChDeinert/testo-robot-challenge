@@ -12,7 +12,9 @@ const possibleDirections = [
 ];
 
 const isRobotPlaced = (board : BoardType, possibleDirections: DirectionType[]) => (xCoordinate : undefined|number, yCoordinate : undefined|number, direction: undefined|DirectionType) : boolean => {
-  if (!isValidXCoordinate(xCoordinate, board) || !isValidYCoordinate(yCoordinate, board) || !isValidDirection(direction, possibleDirections)) {
+  if (typeof xCoordinate !== 'number' || !isValidXCoordinate(xCoordinate, board) || 
+      typeof yCoordinate !== 'number' || !isValidYCoordinate(yCoordinate, board) || 
+      typeof direction === 'string' && !isValidDirection(direction, possibleDirections)) {
     return false;
   }
 
@@ -80,25 +82,25 @@ class Robot {
 
     switch (this.direction) {
       case 'NORTH':
-        if (!isValidYCoordinate(this.yPosition + 1, this.board)) {
+        if (typeof this.yPosition !== 'number' || !isValidYCoordinate(this.yPosition + 1, this.board)) {
           throw new Error('The robot can\'t move in that direction, or it falls down');
         }
         ++this.yPosition;
         break;
       case 'EAST':
-        if (!isValidXCoordinate(this.xPosition + 1, this.board)) {
+        if (typeof this.xPosition !== 'number' || !isValidXCoordinate(this.xPosition + 1, this.board)) {
           throw new Error('The robot can\'t move in that direction, or it falls down');
         }
         ++this.xPosition;
         break;
       case 'SOUTH':
-        if (!isValidYCoordinate(this.yPosition - 1, this.board)) {
+        if (typeof this.yPosition !== 'number' || !isValidYCoordinate(this.yPosition - 1, this.board)) {
           throw new Error('The robot can\'t move in that direction, or it falls down');
         }
         --this.yPosition;
         break;
       case 'WEST':
-        if (!isValidXCoordinate(this.xPosition - 1, this.board)) {
+        if (typeof this.xPosition !== 'number' || !isValidXCoordinate(this.xPosition - 1, this.board)) {
           throw new Error('The robot can\'t move in that direction, or it falls down');
         }
         --this.xPosition;
@@ -127,7 +129,7 @@ class Robot {
     };
   };
 
-  private nextDirection = (turnDirection : 'left'|'right') : DirectionType => {
+  private nextDirection = (turnDirection : 'left'|'right') : undefined|DirectionType => {
     if (!this.isRobotPlaced(this.xPosition, this.yPosition, this.direction)) {
       throw new Error('The robot is not placed yet');
     }
@@ -153,5 +155,7 @@ export {
   isValidXCoordinate,
   isValidYCoordinate,
   isValidDirection,
+  BoardType,
   PositionType,
+  DirectionType,
 };

@@ -1,22 +1,22 @@
 import React, { Component, createContext, useContext } from 'react';
-import Robot, { defaultBoard, possibleDirections, PositionType } from '../lib/robot';
+import Robot, { defaultBoard, possibleDirections, DirectionType, BoardType } from '../lib/robot';
 
 type RobotContextType = { 
   settings: {
-    board,
-    possibleDirections,
+    board: BoardType,
+    possibleDirections: DirectionType[],
   },
   state: {
     initialized: boolean,
     isPlaced: boolean,
-    position?: PositionType,
-    error?,
+    position: { xPosition: number, yPosition: number, direction: DirectionType },
+    error?: Error,
   },
   controls?: {
-    place,
-    move,
-    turnLeft,
-    turnRight,
+    place: (xCoordinate: number, yCoordinate: number, direction: DirectionType) => void,
+    move: () => void,
+    turnLeft: () => void,
+    turnRight: () => void,
   },
 };
 const defaultRobotContext : RobotContextType = {
@@ -27,6 +27,7 @@ const defaultRobotContext : RobotContextType = {
   state: {
     initialized: false,
     isPlaced: false,
+    position: { xPosition: 0, yPosition: 0, direction: possibleDirections[0] },
   },
 };
 
@@ -34,10 +35,10 @@ const RobotContext = createContext<RobotContextType>(defaultRobotContext);
 const useRobotContext = () => useContext(RobotContext);
 
 class RobotProvider extends Component {
-  private robot;
+  private robot ?: Robot;
   state = {
     initialized: false,
-    position: undefined,
+    position: { xPosition: 0, yPosition: 0, direction: possibleDirections[0] },
     isPlaced: false,
     error: undefined
   };
@@ -48,12 +49,12 @@ class RobotProvider extends Component {
   }
 
   updateCurrentPosition = () => {
-    this.setState({ position: this.robot.report(), error: undefined });
+    this.setState({ position: this.robot?.report(), error: undefined });
   }
 
-  place = (xCoordinate, yCoordinate, facing) => {
+  place = (xCoordinate: number, yCoordinate: number, facing: DirectionType) => {
     try {
-      this.robot.place(xCoordinate, yCoordinate, facing);
+      this.robot?.place(xCoordinate, yCoordinate, facing);
       this.updateCurrentPosition();
       this.setState({ isPlaced: true });
     } catch (error) {
@@ -62,7 +63,7 @@ class RobotProvider extends Component {
   }
   move = () => {
     try {
-      this.robot.move();
+      this.robot?.move();
       this.updateCurrentPosition();
     } catch (error) {
       this.setState({ error });
@@ -70,7 +71,7 @@ class RobotProvider extends Component {
   };
   turnLeft = () => {
     try {
-      this.robot.left();
+      this.robot?.left();
       this.updateCurrentPosition();
     } catch (error) {
       this.setState({ error });
@@ -78,7 +79,7 @@ class RobotProvider extends Component {
   };
   turnRight = () => {
     try {
-      this.robot.right();
+      this.robot?.right();
       this.updateCurrentPosition();
     } catch (error) {
       this.setState({ error });

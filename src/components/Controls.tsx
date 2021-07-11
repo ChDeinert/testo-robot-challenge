@@ -1,8 +1,15 @@
 import React from 'react';
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useRobotContext } from '../context/RobotContext';
-import { useForm } from "react-hook-form";
+import { DirectionType } from '../lib/robot';
 
-const Controls = () => {
+type FormValues = {
+  xCoordinate: string;
+  yCoordinate: string;
+  direction: string;
+};
+
+const Controls : React.FC = () => {
   const { 
     settings: { board, possibleDirections }, 
     state: { initialized }, 
@@ -10,8 +17,8 @@ const Controls = () => {
   } = useRobotContext();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onPlace = ({ xCoordinate, yCoordinate, direction }) => {
-    controls?.place(parseInt(xCoordinate), parseInt(yCoordinate), direction);
+  const onPlace : SubmitHandler<FormValues> = ({ xCoordinate, yCoordinate, direction } : FormValues) => {
+    controls?.place(parseInt(xCoordinate), parseInt(yCoordinate), direction as DirectionType);
   };
   const onMoveClick = () => {
     controls?.move();
@@ -29,7 +36,7 @@ const Controls = () => {
         <label htmlFor="xCoordinate">
           X-Coordinate: 
           <input type="number" {...register('xCoordinate', { required: true, min: 0, max: board.xWidth - 1 })} min={0} max={board.xWidth - 1} size={1} />
-          {errors.xCoordinate?.type === 'required' && 'X-Coordinate is required!'}
+          <span>{errors.xCoordinate?.type === 'required' && 'X-Coordinate is required!'}</span>
         </label>
         <label htmlFor="yCoordinate">
           Y-Coordinate: 
