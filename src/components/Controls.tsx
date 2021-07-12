@@ -32,7 +32,7 @@ const Controls : React.FC = () => {
 
   return !initialized ? (<p>loading...</p>) : (
     <>
-      <form onSubmit={handleSubmit(onPlace)} style={{ display: 'flex', flexDirection: 'column' }}>
+      <form onSubmit={handleSubmit(onPlace)} style={{ display: 'flex', flexDirection: 'column' }} data-testid="robotplaceform">
         <label htmlFor="xCoordinate">
           X-Coordinate: 
           <input type="number" {...register('xCoordinate', { required: true, min: 0, max: board.xWidth - 1 })} min={0} max={board.xWidth - 1} size={1} />
@@ -51,7 +51,7 @@ const Controls : React.FC = () => {
         </label>
         <input type="submit" value="place" />
       </form>
-      <div>
+      <div data-testid="robotcontrolbuttons">
         <button onClick={onLeftClick}>left</button>
         <button onClick={onMoveClick}>move</button>
         <button onClick={onRightClick}>right</button>

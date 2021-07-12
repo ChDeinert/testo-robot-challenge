@@ -31,7 +31,7 @@ const Board : React.FC = () => {
   const tileColumn = Array.from(new Array(board.yWidth));
   const tiles = tileRow.map((_, yIndex) => {
     return tileColumn.map((_, xIndex) => (
-      <div style={{ display: 'flex', position: 'relative', justifyContent: 'center', alignItems: 'center', minHeight: '8rem', minWidth: '8rem', maxHeight: '8rem', maxWidth: '8rem', padding: '1rem', border: '1px solid black' }} key={`boardTile${xIndex}${yIndex}`}>
+      <div style={{ display: 'flex', position: 'relative', justifyContent: 'center', alignItems: 'center', minHeight: '8rem', minWidth: '8rem', maxHeight: '8rem', maxWidth: '8rem', padding: '1rem', border: '1px solid black' }} key={`boardTile${xIndex}${yIndex}`} data-testid={`boardTile${xIndex}${yIndex}`}>
         {isPlaced && position?.xPosition === xIndex && position?.yPosition === yIndex && (
           <>
             <Robot style={{ width: '4rem', height: '4rem' }} />

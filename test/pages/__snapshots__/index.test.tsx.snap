@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Index Page/> renders correctly 1`] = `
+<div>
+  <main>
+    <h1>
+      Testo Robot Challenge
+    </h1>
+    <section
+      style="display: grid; grid-template-columns: repeat(5, 1fr);"
+    >
+      <div
+        data-testid="boardTile04"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile14"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile24"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile34"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile44"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile03"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile13"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile23"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile33"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile43"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile02"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile12"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile22"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile32"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile42"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile01"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile11"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile21"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile31"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile41"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile00"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile10"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile20"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile30"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+      <div
+        data-testid="boardTile40"
+        style="display: flex; position: relative; justify-content: center; align-items: center; min-height: 8rem; min-width: 8rem; max-height: 8rem; max-width: 8rem; padding: 1rem; border: 1px solid black;"
+      />
+    </section>
+    <p>
+      loading...
+    </p>
+  </main>
+</div>
+`;

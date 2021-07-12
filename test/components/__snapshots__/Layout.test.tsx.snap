@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout> renders it's children inside a main tag 1`] = `
+<div>
+  <main>
+    <div
+      data-testid="testChild"
+    >
+      testChild
+    </div>
+  </main>
+</div>
+`;

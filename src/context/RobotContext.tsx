@@ -91,7 +91,7 @@ class RobotProvider extends Component {
     const { initialized, position, isPlaced, error } = this.state;
 
     return (
-      <RobotContext.Provider value={{ 
+      <RobotContext.Provider value={{
         settings: { board: defaultBoard, possibleDirections: possibleDirections },
         state: {
           initialized,

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Controls /> renders the place form if Robot is initialized in context 1`] = `
+<form
+  data-testid="robotplaceform"
+  style="display: flex; flex-direction: column;"
+>
+  <label
+    for="xCoordinate"
+  >
+    X-Coordinate:
+    <input
+      max="4"
+      min="0"
+      name="xCoordinate"
+      size="1"
+      type="number"
+    />
+    <span />
+  </label>
+  <label
+    for="yCoordinate"
+  >
+    Y-Coordinate:
+    <input
+      max="4"
+      min="0"
+      name="yCoordinate"
+      size="1"
+      type="number"
+    />
+  </label>
+  <label
+    for="direction"
+  >
+    Facing direction:
+    <select
+      name="direction"
+    >
+      <option
+        value="NORTH"
+      >
+        NORTH
+      </option>
+      <option
+        value="EAST"
+      >
+        EAST
+      </option>
+      <option
+        value="SOUTH"
+      >
+        SOUTH
+      </option>
+      <option
+        value="WEST"
+      >
+        WEST
+      </option>
+    </select>
+  </label>
+  <input
+    type="submit"
+    value="place"
+  />
+</form>
+`;
+
+exports[`<Controls /> renders the robot control if Robot is initialized in context 1`] = `
+<div
+  data-testid="robotcontrolbuttons"
+>
+  <button>
+    left
+  </button>
+  <button>
+    move
+  </button>
+  <button>
+    right
+  </button>
+</div>
+`;
