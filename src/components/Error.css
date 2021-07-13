@@ -1,0 +1,31 @@
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-width: 42.5rem;
+  min-height: 2.5rem;
+  margin: -1rem 0;
+  padding: .5rem;
+  background-color: var(--color-red);
+  color: white;
+  font-weight: 600;
+  border: 2px solid var(--color-red-dark);
+  border-radius: .25rem;
+  text-align: center;
+}
+
+.error:empty {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.error__icon, .error__icon > svg {
+  height: 1.4rem;
+  width: 1.4rem;
+}
+
+.error__icon {
+  position: absolute;
+  left: 1rem;
+}

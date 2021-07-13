@@ -1,6 +1,6 @@
 type BoardType = { xWidth: number, yWidth: number };
 type DirectionType = 'NORTH' | 'EAST' | 'SOUTH' | 'WEST';
-type PositionType = { xPosition: undefined|number, yPosition: undefined|number, direction: undefined|DirectionType, toString?: () => string };
+type PositionType = { xPosition?: number, yPosition?: number, direction?: DirectionType, toString?: () => string };
 
 const defaultBoard : BoardType = {
   xWidth: 5,
@@ -11,7 +11,7 @@ const possibleDirections = [
   'NORTH' as DirectionType, 'EAST' as DirectionType, 'SOUTH' as DirectionType, 'WEST' as DirectionType
 ];
 
-const isRobotPlaced = (board : BoardType, possibleDirections: DirectionType[]) => (xCoordinate : undefined|number, yCoordinate : undefined|number, direction: undefined|DirectionType) : boolean => {
+const isRobotPlaced = (board : BoardType, possibleDirections: DirectionType[]) => (xCoordinate?: number, yCoordinate?: number, direction?: DirectionType) : boolean => {
   if (typeof xCoordinate !== 'number' || !isValidXCoordinate(xCoordinate, board) || 
       typeof yCoordinate !== 'number' || !isValidYCoordinate(yCoordinate, board) || 
       typeof direction === 'string' && !isValidDirection(direction, possibleDirections)) {
@@ -21,7 +21,7 @@ const isRobotPlaced = (board : BoardType, possibleDirections: DirectionType[]) =
   return true;
 };
 
-const isValidXCoordinate = (xCoordinate : number, board: BoardType) : boolean => {
+const isValidXCoordinate = (xCoordinate: number, board: BoardType) : boolean => {
   if (typeof xCoordinate !== 'number' || isNaN(xCoordinate) || xCoordinate < 0 || xCoordinate >= board.xWidth) {
     return false;
   }
@@ -29,7 +29,7 @@ const isValidXCoordinate = (xCoordinate : number, board: BoardType) : boolean =>
   return true;
 };
 
-const isValidYCoordinate = (yCoordinate : number, board: BoardType) : boolean => {
+const isValidYCoordinate = (yCoordinate: number, board: BoardType) : boolean => {
   if (typeof yCoordinate !== 'number' || isNaN(yCoordinate) || yCoordinate < 0 || yCoordinate >= board.yWidth) {
     return false;
   }
@@ -37,7 +37,7 @@ const isValidYCoordinate = (yCoordinate : number, board: BoardType) : boolean =>
   return true;
 };
 
-const isValidDirection = (direction : DirectionType, possibleDirections: DirectionType[]) : boolean => {
+const isValidDirection = (direction: DirectionType, possibleDirections: DirectionType[]) : boolean => {
   if (typeof direction !== 'string' || !possibleDirections.includes(direction)) {
     return false;
   }
@@ -46,14 +46,14 @@ const isValidDirection = (direction : DirectionType, possibleDirections: Directi
 };
 
 class Robot {
-  private xPosition: undefined | number;
-  private yPosition: undefined | number;
-  private direction: undefined | DirectionType;
+  private xPosition?: number;
+  private yPosition?: number;
+  private direction?: DirectionType;
   private board: BoardType;
   private possibleDirections : DirectionType[];
   private isRobotPlaced;
 
-  constructor(board: BoardType, possibleDirections : DirectionType[]) {
+  constructor(board: BoardType, possibleDirections: DirectionType[]) {
     this.board = board;
     this.possibleDirections = possibleDirections;
     this.isRobotPlaced = isRobotPlaced(board, possibleDirections);
@@ -129,7 +129,7 @@ class Robot {
     };
   };
 
-  private nextDirection = (turnDirection : 'left'|'right') : undefined|DirectionType => {
+  private nextDirection = (turnDirection: 'left'|'right') : undefined|DirectionType => {
     if (!this.isRobotPlaced(this.xPosition, this.yPosition, this.direction)) {
       throw new Error('The robot is not placed yet');
     }

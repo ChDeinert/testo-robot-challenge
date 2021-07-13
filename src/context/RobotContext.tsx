@@ -1,5 +1,5 @@
 import React, { Component, createContext, useContext } from 'react';
-import Robot, { defaultBoard, possibleDirections, DirectionType, BoardType } from '../lib/robot';
+import Robot, { defaultBoard, possibleDirections, DirectionType, BoardType, PositionType } from '../lib/robot';
 
 type RobotContextType = { 
   settings: {
@@ -17,8 +17,10 @@ type RobotContextType = {
     move: () => void,
     turnLeft: () => void,
     turnRight: () => void,
+    report: () => undefined|PositionType,
   },
 };
+
 const defaultRobotContext : RobotContextType = {
   settings: {
     board: defaultBoard,
@@ -35,7 +37,7 @@ const RobotContext = createContext<RobotContextType>(defaultRobotContext);
 const useRobotContext = () => useContext(RobotContext);
 
 class RobotProvider extends Component {
-  private robot ?: Robot;
+  private robot?: Robot;
   state = {
     initialized: false,
     position: { xPosition: 0, yPosition: 0, direction: possibleDirections[0] },
@@ -61,6 +63,7 @@ class RobotProvider extends Component {
       this.setState({ error });
     }
   }
+
   move = () => {
     try {
       this.robot?.move();
@@ -69,6 +72,7 @@ class RobotProvider extends Component {
       this.setState({ error });
     }
   };
+
   turnLeft = () => {
     try {
       this.robot?.left();
@@ -77,6 +81,7 @@ class RobotProvider extends Component {
       this.setState({ error });
     }
   };
+
   turnRight = () => {
     try {
       this.robot?.right();
@@ -85,6 +90,14 @@ class RobotProvider extends Component {
       this.setState({ error });
     }
   };
+
+  report = () => {
+    try {
+      return this.robot?.report();
+    } catch (error) {
+      this.setState({ error });
+    }
+  }
 
   render() { 
     const { children } = this.props;
@@ -104,6 +117,7 @@ class RobotProvider extends Component {
           move: this.move,
           turnLeft: this.turnLeft,
           turnRight: this.turnRight,
+          report: this.report,
         }
       }}>
         {children}

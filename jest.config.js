@@ -7,4 +7,5 @@ module.exports = {
     '^(?!.*\\.(js|jsx|css|json)$)': '<rootDir>/test/fileTransform.js',
   },
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$'],
+  testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/cypress/"]
 };

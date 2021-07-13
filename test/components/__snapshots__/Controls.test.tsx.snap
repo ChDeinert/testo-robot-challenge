@@ -2,39 +2,50 @@
 
 exports[`<Controls /> renders the place form if Robot is initialized in context 1`] = `
 <form
+  class="controls__form"
   data-testid="robotplaceform"
-  style="display: flex; flex-direction: column;"
 >
   <label
+    class="controls__form__group controls__form__label"
     for="xCoordinate"
   >
     X-Coordinate:
     <input
+      class="controls__form__input"
       max="4"
       min="0"
       name="xCoordinate"
       size="1"
       type="number"
     />
-    <span />
+    <span
+      class="controls__form__group__warning"
+    />
   </label>
   <label
+    class="controls__form__group controls__form__label"
     for="yCoordinate"
   >
     Y-Coordinate:
     <input
+      class="controls__form__input"
       max="4"
       min="0"
       name="yCoordinate"
       size="1"
       type="number"
     />
+    <span
+      class="controls__form__group__warning"
+    />
   </label>
   <label
+    class="controls__form__group controls__form__label"
     for="direction"
   >
     Facing direction:
     <select
+      class="controls__form__input"
       name="direction"
     >
       <option
@@ -60,24 +71,56 @@ exports[`<Controls /> renders the place form if Robot is initialized in context 
     </select>
   </label>
   <input
+    class="controls__form__input"
     type="submit"
-    value="place"
+    value="Place Robot"
   />
 </form>
 `;
 
 exports[`<Controls /> renders the robot control if Robot is initialized in context 1`] = `
 <div
+  class="controls__buttons"
   data-testid="robotcontrolbuttons"
 >
-  <button>
-    left
+  <button
+    class="svgbutton"
+    data-testid="robotcontrol-button-turnleft"
+  >
+    <duotone-undo-svgrepo-com.svg
+      aria-hidden="true"
+    />
+    <span
+      class="svgbutton--visually-hidden"
+    >
+      Turn left
+    </span>
   </button>
-  <button>
-    move
+  <button
+    class="svgbutton"
+    data-testid="robotcontrol-button-move"
+  >
+    <duotone-arrow-up-svgrepo-com.svg
+      aria-hidden="true"
+    />
+    <span
+      class="svgbutton--visually-hidden"
+    >
+      Move Robot
+    </span>
   </button>
-  <button>
-    right
+  <button
+    class="svgbutton"
+    data-testid="robotcontrol-button-turnright"
+  >
+    <duotone-redo-svgrepo-com.svg
+      aria-hidden="true"
+    />
+    <span
+      class="svgbutton--visually-hidden"
+    >
+      Turn right
+    </span>
   </button>
 </div>
 `;

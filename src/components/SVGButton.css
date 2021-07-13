@@ -1,0 +1,42 @@
+.svgbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid var(--color-blue);
+  font-size: 1rem;
+  color: var(--color-blue);
+  border-radius: .25rem;
+  padding: .5rem;
+  cursor: pointer;
+}
+
+.svgbutton:hover,
+.svgbutton:active {
+  background-color: var(--color-blue-light);
+  border: 2px solid var(--color-blue);
+}
+
+.svgbutton:focus {
+  border: 2px solid var(--color-blue);
+  outline: var(--color-orange) solid 2px;
+  outline-offset: 2px;
+}
+
+.svgbutton > svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.svgbutton--visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.svgbutton--visually-hidden:empty {
+  display: none;
+}
