@@ -14,7 +14,8 @@
     "test": "jest --bail",
     "test:watch": "jest --watch",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
-    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "eslint": "^7.30.0",
     "eslint-plugin-cypress": "^2.11.3",
     "gatsby-plugin-react-svg": "^3.0.1",
+    "gh-pages": "^3.2.3",
     "jest": "^27.0.6",
     "start-server-and-test": "^1.12.6",
     "typescript": "^4.3.5"
