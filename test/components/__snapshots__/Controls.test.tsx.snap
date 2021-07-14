@@ -12,6 +12,7 @@ exports[`<Controls /> renders the place form if Robot is initialized in context 
     X-Coordinate:
     <input
       class="controls__form__input"
+      data-testid="robotplaceform-x"
       max="4"
       min="0"
       name="xCoordinate"
@@ -29,6 +30,7 @@ exports[`<Controls /> renders the place form if Robot is initialized in context 
     Y-Coordinate:
     <input
       class="controls__form__input"
+      data-testid="robotplaceform-y"
       max="4"
       min="0"
       name="yCoordinate"
@@ -46,6 +48,7 @@ exports[`<Controls /> renders the place form if Robot is initialized in context 
     Facing direction:
     <select
       class="controls__form__input"
+      data-testid="robotplaceform-facing"
       name="direction"
     >
       <option
@@ -72,6 +75,7 @@ exports[`<Controls /> renders the place form if Robot is initialized in context 
   </label>
   <input
     class="controls__form__input"
+    data-testid="robotplaceform-submit"
     type="submit"
     value="Place Robot"
   />
@@ -86,6 +90,7 @@ exports[`<Controls /> renders the robot control if Robot is initialized in conte
   <button
     class="svgbutton"
     data-testid="robotcontrol-button-turnleft"
+    title="Turn left"
   >
     <duotone-undo-svgrepo-com.svg
       aria-hidden="true"
@@ -99,6 +104,7 @@ exports[`<Controls /> renders the robot control if Robot is initialized in conte
   <button
     class="svgbutton"
     data-testid="robotcontrol-button-move"
+    title="Move Robot"
   >
     <duotone-arrow-up-svgrepo-com.svg
       aria-hidden="true"
@@ -112,6 +118,7 @@ exports[`<Controls /> renders the robot control if Robot is initialized in conte
   <button
     class="svgbutton"
     data-testid="robotcontrol-button-turnright"
+    title="Turn right"
   >
     <duotone-redo-svgrepo-com.svg
       aria-hidden="true"

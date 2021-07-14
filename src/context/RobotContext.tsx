@@ -93,7 +93,11 @@ class RobotProvider extends Component {
 
   report = () => {
     try {
-      return this.robot?.report();
+      const currentPositionReport = this.robot?.report();
+      if (currentPositionReport) {
+        alert(`The Robot's current position: ${currentPositionReport}`);
+      }
+      return currentPositionReport;
     } catch (error) {
       this.setState({ error });
     }

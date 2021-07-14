@@ -37,9 +37,7 @@ const Controls : React.FC = () => {
   }, [ controls ]);
   const onReportPositionClick = useCallback(() => {
     const currentPositionReport = controls?.report();
-    if (currentPositionReport) {
-      alert(`The Robot's current position: ${currentPositionReport}`);
-    }
+    
   }, [ controls ]);
 
   return !initialized ? (<p>loading...</p>) : (
@@ -70,6 +68,7 @@ const Controls : React.FC = () => {
             max={board.xWidth - 1} 
             size={1} 
             className="controls__form__input" 
+            data-testid="robotplaceform-x"
           />
           <span className="controls__form__group__warning">{errors.xCoordinate?.type === 'required' && 'X-Coordinate is required!'}</span>
         </label>
@@ -82,16 +81,17 @@ const Controls : React.FC = () => {
             max={board.yWidth - 1} 
             size={1} 
             className="controls__form__input" 
+            data-testid="robotplaceform-y"
           />
           <span className="controls__form__group__warning">{errors.yCoordinate?.type === 'required' && 'Y-Coordinate is required!'}</span>
         </label>
         <label htmlFor="direction" className="controls__form__group controls__form__label">
           Facing direction:
-          <select {...register('direction', { required: true })} className="controls__form__input">
+          <select {...register('direction', { required: true })} className="controls__form__input" data-testid="robotplaceform-facing">
             {possibleDirections.map((direction, index) => (<option key={`direction_${index}`} value={direction}>{direction}</option>))}
           </select>
         </label>
-        <input type="submit" value="Place Robot" className="controls__form__input" />
+        <input type="submit" value="Place Robot" className="controls__form__input" data-testid="robotplaceform-submit" />
       </form>
     </>
   );

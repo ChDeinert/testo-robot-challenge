@@ -1,0 +1,56 @@
+.textcontrol {
+  margin: -1rem 0 -.5rem;
+  padding: .5rem;
+  border: 2px solid var(--color-blue);
+  border-radius: .25rem;
+}
+
+.textcontrol__form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.textcontrol__form > label {
+  font-weight: 600;
+}
+
+.textcontrol__form__input {
+  padding: .25rem;
+  background-color: white;
+  border: 2px solid var(--color-blue);
+  border-radius: .25rem;
+}
+
+.textcontrol__form__input[type="submit"] {
+  cursor: pointer;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  font-weight: 600;
+}
+
+.textcontrol__form__input[type="submit"]:active,
+.textcontrol__form__input[type="submit"]:hover {
+  background-color: var(--color-blue-light);
+}
+
+.textcontrol__form__input:focus {
+  border: 2px solid var(--color-blue);
+  outline: var(--color-orange) solid 2px;
+  outline-offset: 2px;
+}
+
+.textcontrol__message {
+  min-height: calc(1.8rem + 4px);
+  line-height: 1rem;
+  padding: .25rem .5rem;
+  border: 2px solid var(--color-red);
+  border-radius: .25rem;
+  text-align: center;
+}
+
+.textcontrol__message:empty {
+  border-color: transparent;
+}

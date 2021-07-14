@@ -6,6 +6,38 @@ exports[`<Index Page/> renders correctly 1`] = `
     <h1>
       Testo Robot Challenge
     </h1>
+    <details
+      class="textcontrol"
+    >
+      <summary>
+        Manually type Commands for the robot
+      </summary>
+      <form
+        class="textcontrol__form"
+        data-testid="robotcommandform"
+      >
+        <label
+          for="textcontrol-command"
+        >
+          Command:
+        </label>
+        <input
+          class="textcontrol__form__input"
+          data-testid="robotcommand-input"
+          name="command"
+          type="text"
+        />
+        <input
+          class="textcontrol__form__input"
+          data-testid="robotcommand-submit"
+          type="submit"
+          value="Send command"
+        />
+      </form>
+      <div
+        class="textcontrol__message"
+      />
+    </details>
     <section
       class="board"
     >

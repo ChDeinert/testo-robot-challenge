@@ -3,7 +3,7 @@ import './SVGButton.css';
 
 const SVGButton : React.FC<{ onClickHandler: () => void, title?: string }> = ({ children, onClickHandler, title, ...props }) => {
   return (
-    <button className="svgbutton" onClick={onClickHandler} {...props}>
+    <button className="svgbutton" onClick={onClickHandler} title={title} {...props}>
       {children}
       <span className="svgbutton--visually-hidden">{title}</span>
     </button>
