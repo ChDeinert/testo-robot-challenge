@@ -13,6 +13,7 @@ exports[`<Controls /> renders the place form if Robot is initialized in context 
     <input
       class="controls__form__input"
       data-testid="robotplaceform-x"
+      id="xCoordinate"
       max="4"
       min="0"
       name="xCoordinate"
@@ -31,6 +32,7 @@ exports[`<Controls /> renders the place form if Robot is initialized in context 
     <input
       class="controls__form__input"
       data-testid="robotplaceform-y"
+      id="yCoordinate"
       max="4"
       min="0"
       name="yCoordinate"
@@ -49,6 +51,7 @@ exports[`<Controls /> renders the place form if Robot is initialized in context 
     <select
       class="controls__form__input"
       data-testid="robotplaceform-facing"
+      id="direction"
       name="direction"
     >
       <option

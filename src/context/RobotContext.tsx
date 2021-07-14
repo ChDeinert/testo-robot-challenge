@@ -32,10 +32,13 @@ const defaultRobotContext : RobotContextType = {
     position: { xPosition: 0, yPosition: 0, direction: possibleDirections[0] },
   },
 };
-
 const RobotContext = createContext<RobotContextType>(defaultRobotContext);
 const useRobotContext = () => useContext(RobotContext);
 
+/**
+ * React component rendering the RobotContext provider,
+ * it's setting, state and control-methods
+ */
 class RobotProvider extends Component {
   private robot?: Robot;
   state = {
@@ -46,6 +49,8 @@ class RobotProvider extends Component {
   };
 
   componentDidMount() {
+    // Initialize the Robot only after the component is mounted
+    // so that ssr/prerender aren't effected by any instance of Robot
     this.robot = new Robot(defaultBoard, possibleDirections);
     this.setState({ initialized: true });
   }
@@ -94,9 +99,7 @@ class RobotProvider extends Component {
   report = () => {
     try {
       const currentPositionReport = this.robot?.report();
-      if (currentPositionReport) {
-        alert(`The Robot's current position: ${currentPositionReport}`);
-      }
+      alert(`The Robot's current position: ${currentPositionReport}`);
       return currentPositionReport;
     } catch (error) {
       this.setState({ error });

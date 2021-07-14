@@ -139,7 +139,7 @@ describe('Index page e2e tests', () => {
         cy.get('div[data-testid="boardTile01"]').children().should('have.length.gt', 0);
         cy.get('[data-testid="robotplaceform-facing"]').select('NORTH');
       });
-    })
+    });
 
     describe('placed', () => {
       it('move() moves the robot', () => {

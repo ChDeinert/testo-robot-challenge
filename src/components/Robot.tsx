@@ -6,8 +6,12 @@ import './Robot.css';
 const Robot : React.FC<{ direction: string }> = ({ direction }) => {
   return (
     <span className="robot__wrapper">
-      <RobotSVG className="robot" />
-      <ChevronSVG className={`robot__direction-indicator robot__direction-indicator--${direction}`} viewBox='0 -32 24 54' />
+      <RobotSVG className="robot" aria-label="Robot" />
+      <ChevronSVG 
+        className={`robot__direction-indicator robot__direction-indicator--${direction}`} 
+        aria-label={`Robot direction:'${direction}'`} 
+        viewBox='0 -32 24 54' 
+      />
     </span>
   );
 };

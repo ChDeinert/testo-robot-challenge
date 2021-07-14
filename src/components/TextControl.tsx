@@ -5,7 +5,7 @@ import { DirectionType } from '../lib/robot';
 import './TextControl.css';
 
 const TextControl : React.FC = () => {
-  const { controls } = useRobotContext();
+  const { state: { initialized }, controls } = useRobotContext();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const handleCommandSubmit: SubmitHandler<{ command: string }> = ({ command }) => {
@@ -42,7 +42,7 @@ const TextControl : React.FC = () => {
     return true;
   };
 
-  return (
+  return !initialized ? (<p>loading...</p>) : (
     <details className="textcontrol">
       <summary>Manually type Commands for the robot</summary>
       <form onSubmit={handleSubmit(handleCommandSubmit)} className="textcontrol__form" data-testid="robotcommandform">
@@ -51,6 +51,7 @@ const TextControl : React.FC = () => {
         </label>
         <input 
           type="text" 
+          id="textcontrol-command"
           {...register('command', { required: 'A command is required', validate: validateCommand })} 
           className="textcontrol__form__input" 
           data-testid="robotcommand-input" 

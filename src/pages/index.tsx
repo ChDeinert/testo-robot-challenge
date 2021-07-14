@@ -10,10 +10,10 @@ import '../assets/css/style.css';
 const IndexPage : React.FC = () => (
   <Layout>
     <h1>Testo Robot Challenge</h1>
-    <TextControl />
     <Board render={({ direction }) => <Robot direction={direction} />} />
     <Error />
     <Controls />
+    <TextControl />
   </Layout>
 );
 

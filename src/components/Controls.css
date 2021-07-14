@@ -29,6 +29,7 @@
 
 .controls__form__label {
   font-weight: 600;
+  cursor: pointer;
 }
 
 .controls__form__input {

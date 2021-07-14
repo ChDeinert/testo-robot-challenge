@@ -36,8 +36,7 @@ const Controls : React.FC = () => {
     controls?.turnRight();
   }, [ controls ]);
   const onReportPositionClick = useCallback(() => {
-    const currentPositionReport = controls?.report();
-    
+    controls?.report();
   }, [ controls ]);
 
   return !initialized ? (<p>loading...</p>) : (
@@ -63,6 +62,7 @@ const Controls : React.FC = () => {
           X-Coordinate: 
           <input 
             type="number" 
+            id="xCoordinate"
             {...register('xCoordinate', { required: true, min: 0, max: board.xWidth - 1 })} 
             min={0} 
             max={board.xWidth - 1} 
@@ -76,6 +76,7 @@ const Controls : React.FC = () => {
           Y-Coordinate: 
           <input 
             type="number" 
+            id="yCoordinate"
             {...register('yCoordinate', { required: true, min: 0, max: board.yWidth - 1 })} 
             min={0} 
             max={board.yWidth - 1} 
@@ -87,7 +88,7 @@ const Controls : React.FC = () => {
         </label>
         <label htmlFor="direction" className="controls__form__group controls__form__label">
           Facing direction:
-          <select {...register('direction', { required: true })} className="controls__form__input" data-testid="robotplaceform-facing">
+          <select id="direction" {...register('direction', { required: true })} className="controls__form__input" data-testid="robotplaceform-facing">
             {possibleDirections.map((direction, index) => (<option key={`direction_${index}`} value={direction}>{direction}</option>))}
           </select>
         </label>

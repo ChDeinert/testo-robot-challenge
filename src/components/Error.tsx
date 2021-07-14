@@ -10,8 +10,12 @@ const Error : React.FC = () => {
   
   return (
     <div className="error">
-      {error && <i className="error__icon"><Warning aria-hidden="true" /></i>}
-      {error && <span>{error?.message}</span>}
+      {error && (
+        <>
+          <i className="error__icon"><Warning aria-hidden="true" /></i>
+          <span>{error?.message}</span>
+        </>
+      )}
     </div>
   )
 };

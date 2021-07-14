@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextControl /> renders the command form 1`] = `
+<form
+  class="textcontrol__form"
+  data-testid="robotcommandform"
+>
+  <label
+    for="textcontrol-command"
+  >
+    Command:
+  </label>
+  <input
+    class="textcontrol__form__input"
+    data-testid="robotcommand-input"
+    id="textcontrol-command"
+    name="command"
+    type="text"
+  />
+  <input
+    class="textcontrol__form__input"
+    data-testid="robotcommand-submit"
+    type="submit"
+    value="Send command"
+  />
+</form>
+`;
